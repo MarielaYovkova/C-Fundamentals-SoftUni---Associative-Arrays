@@ -1,0 +1,17 @@
+using System.Formats.Asn1;
+
+Dictionary<string, uint> resourceMap = new Dictionary<string, uint>();
+string resource;
+while (( resource = Console.ReadLine()) != "stop")
+{
+    if (!resourceMap.ContainsKey(resource))
+    {
+        resourceMap.Add(resource, 0);
+    }
+    uint quantity = uint.Parse(Console.ReadLine());
+    resourceMap[resource] += quantity;
+}
+foreach (KeyValuePair<string, uint> kvp in resourceMap)
+{
+    Console.WriteLine($"{kvp.Key} -> {kvp.Value}");
+}
